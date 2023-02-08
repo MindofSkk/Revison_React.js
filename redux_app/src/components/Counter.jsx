@@ -1,18 +1,19 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { decrementcounter, incrementcounter } from '../store/action';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {increment,decrement} from "../Redux/Action"
 
 export const Counter = () => {
-    const count=useSelector((state)=>state.count);
+
+    const s=useSelector((state)=>state);
+    // console.log(s)
     const dispatch=useDispatch()
   return (
     <div>
-        <h1>Counter:{count}</h1>
-        <hr />
-      <div>
-      <button onClick={()=>dispatch(incrementcounter)}>  -  </button>
-        <button onClick={()=>dispatch(decrementcounter)}>  +  </button>
-      </div>
+
+      
+      <button onClick={()=>dispatch(increment())}>click + </button>
+      <p>{s}</p>
+      <button onClick={()=>dispatch(decrement())}>click - </button>
     </div>
-  )
-}
+  );
+};
